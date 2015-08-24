@@ -1,0 +1,151 @@
+	Mon Aug 24 06:26 2015 Time and Allocation Profiling Report  (Final)
+
+	   logStats +RTS -p -RTS
+
+	total time  =        1.10 secs   (1097 ticks @ 1000 us, 1 processor)
+	total alloc = 951,608,752 bytes  (excludes profiling overheads)
+
+COST CENTRE                  MODULE       %time %alloc
+
+updateColumnStats.\          StatsConduit  84.6   72.5
+fromSci                      StatsConduit   8.0   16.9
+updateColumnStats.minMax     StatsConduit   2.2    1.0
+textColumnParser             LogEntry       1.2    2.1
+newStatsConduit.statsConduit StatsConduit   1.0    1.1
+main                         Main           0.9    1.5
+numberColumnParser           LogEntry       0.6    2.2
+logEntryConduit              Conduit        0.5    1.3
+
+
+                                                                                   individual     inherited
+COST CENTRE                            MODULE                    no.     entries  %time %alloc   %time %alloc
+
+MAIN                                   MAIN                      138           0    0.0    0.0   100.0  100.0
+ main                                  Main                      277           0    0.9    1.5   100.0  100.0
+  stdOutConsumer                       Conduit                   380           0    0.0    0.0     0.0    0.0
+  stdInProducer                        Conduit                   311           0    0.0    0.1     0.0    0.1
+  logEntryConduit                      Conduit                   308           0    0.5    1.3     2.6    6.2
+   newLogEntryParser                   LogEntry                  312           1    0.0    0.0     2.1    4.9
+    newLogEntryParser.build            LogEntry                  316           3    0.1    0.0     1.5    4.0
+     typedColumnParser                 LogEntry                  324           3    0.1    0.0     0.3    0.7
+      numberColumnParser               LogEntry                  327           2    0.0    0.0     0.0    0.0
+      textColumnParser                 LogEntry                  325           1    0.2    0.7     0.2    0.7
+       textColumnParser.delim          LogEntry                  326       64892    0.0    0.0     0.0    0.0
+     skipChar                          LogEntry                  321           0    0.1    0.5     1.2    3.3
+      typedColumnParser                LogEntry                  322           0    0.0    0.0     1.1    2.8
+       numberColumnParser              LogEntry                  328           0    0.6    2.2     0.7    2.3
+        textColumnParser               LogEntry                  329           0    0.1    0.1     0.1    0.1
+       textColumnParser                LogEntry                  323           0    0.4    0.5     0.4    0.5
+    typedColumnParser                  LogEntry                  313           1    0.0    0.0     0.5    0.8
+     textColumnParser                  LogEntry                  314           1    0.5    0.8     0.5    0.8
+      newLogEntryParser.build          LogEntry                  317           0    0.0    0.0     0.0    0.0
+      textColumnParser.delim           LogEntry                  315       90000    0.0    0.0     0.0    0.0
+  newStatsToByteStringConduit          StatsConduit              302           1    0.0    0.0     8.3   17.3
+   newStatsToByteStringConduit.conduit StatsConduit              305       10001    0.3    0.5     8.3   17.3
+    showLogStats                       StatsConduit              357           1    0.0    0.0     8.0   16.9
+     newLine                           StatsConduit              383           0    0.0    0.0     0.0    0.0
+      showLogStats.showCols            StatsConduit              384           0    0.0    0.0     0.0    0.0
+       showColumnStats                 StatsConduit              385           0    0.0    0.0     0.0    0.0
+        fromSci                        StatsConduit              392           0    0.0    0.0     0.0    0.0
+        appendBs                       StatsConduit              386           0    0.0    0.0     0.0    0.0
+         appendColName                 StatsConduit              387           0    0.0    0.0     0.0    0.0
+     statsColumnStats                  StatsConduit              365           1    0.0    0.0     0.0    0.0
+     showLogStats.showCols             StatsConduit              364           1    0.0    0.0     8.0   16.9
+      showColumnStats                  StatsConduit              366           4    0.0    0.0     8.0   16.9
+       fromSci                         StatsConduit              391           0    8.0   16.9     8.0   16.9
+       numNullCount                    StatsConduit              379           2    0.0    0.0     0.0    0.0
+       numMin                          StatsConduit              378           2    0.0    0.0     0.0    0.0
+       numMax                          StatsConduit              377           2    0.0    0.0     0.0    0.0
+       numAverage                      StatsConduit              376           2    0.0    0.0     0.0    0.0
+       textNullCount                   StatsConduit              375           2    0.0    0.0     0.0    0.0
+       textShortestCount               StatsConduit              374           2    0.0    0.0     0.0    0.0
+       textShortestVal                 StatsConduit              373           2    0.0    0.0     0.0    0.0
+       textLongestCount                StatsConduit              372           2    0.0    0.0     0.0    0.0
+       textLongestVal                  StatsConduit              371           2    0.0    0.0     0.0    0.0
+       appendBs                        StatsConduit              370          20    0.0    0.0     0.0    0.0
+        appendColName                  StatsConduit              381           0    0.0    0.0     0.0    0.0
+       textAverageLength               StatsConduit              369           2    0.0    0.0     0.0    0.0
+       appendColName                   StatsConduit              367           4    0.0    0.0     0.0    0.0
+        appendBs                       StatsConduit              368           4    0.0    0.0     0.0    0.0
+     appendBs                          StatsConduit              363           1    0.0    0.0     0.0    0.0
+     statsEntryCount                   StatsConduit              362           1    0.0    0.0     0.0    0.0
+  newLogEntryStats                     StatsConduit              290           1    0.0    0.0     0.0    0.0
+  newStatsConduit                      StatsConduit              289           1    0.0    0.0    88.2   74.9
+   newStatsConduit.trackers            StatsConduit              331           1    0.0    0.0     0.0    0.0
+    statsColumnStats                   StatsConduit              332           1    0.0    0.0     0.0    0.0
+   newStatsConduit.statsConduit        StatsConduit              306       10001    1.0    1.1    88.2   74.9
+    newStatsConduit.trackers           StatsConduit              333           0    0.1    0.0    87.2   73.8
+     updateColumnStats                 StatsConduit              334       40000    0.4    0.1    87.1   73.8
+      numNullCount                     StatsConduit              355         854    0.0    0.0     0.0    0.0
+      textNullCount                    StatsConduit              354         854    0.0    0.0     0.0    0.0
+      textLongestCount                 StatsConduit              353           3    0.0    0.0     0.0    0.0
+      textLongestVal                   StatsConduit              352           3    0.0    0.0     0.0    0.0
+      numMax                           StatsConduit              350       19171    0.0    0.0     0.0    0.0
+      updateColumnStats.minMax         StatsConduit              349       38292    2.2    1.0     2.2    1.0
+       numMin                          StatsConduit              351       19146    0.0    0.0     0.0    0.0
+      updateColumnStats.\              StatsConduit              347       19146   84.6   72.5    84.6   72.5
+      numAverage                       StatsConduit              346       19146    0.0    0.0     0.0    0.0
+      updateColumnStats.textStat       StatsConduit              340       38292    0.0    0.0     0.0    0.1
+       textShortestCount               StatsConduit              345       14566    0.0    0.0     0.0    0.0
+       textShortestVal                 StatsConduit              344       19152    0.0    0.0     0.0    0.0
+       textLongestCount                StatsConduit              343       14578    0.0    0.0     0.0    0.0
+       updateColumnStats.textStat.lenA StatsConduit              342       38292    0.0    0.1     0.0    0.1
+       textLongestVal                  StatsConduit              341       19146    0.0    0.0     0.0    0.0
+      updateColumnStats.len            StatsConduit              339       19146    0.0    0.0     0.0    0.0
+      updateColumnStats.\              StatsConduit              336       19146    0.0    0.0     0.0    0.0
+      textAverageLength                StatsConduit              335       19146    0.0    0.0     0.0    0.0
+    statsEntryCount                    StatsConduit              330       10000    0.0    0.0     0.0    0.0
+   newLogEntryStats                    StatsConduit              291           0    0.0    0.0     0.0    0.0
+    newColumnStats                     StatsConduit              292           4    0.0    0.0     0.0    0.0
+     newColumnStats.newRef             StatsConduit              301           0    0.0    0.0     0.0    0.0
+     newColumnStats.newBsRef           StatsConduit              299           0    0.0    0.0     0.0    0.0
+     newColumnStats.newRef             StatsConduit              297           0    0.0    0.0     0.0    0.0
+  schemaParser                         LogEntry                  279           0    0.0    0.0     0.0    0.0
+   columnParser                        LogEntry                  281           0    0.0    0.0     0.0    0.0
+    skipChar                           LogEntry                  287           0    0.0    0.0     0.0    0.0
+     columnParser.columnValue          LogEntry                  293           4    0.0    0.0     0.0    0.0
+     columnParser.skipQuote            LogEntry                  288           0    0.0    0.0     0.0    0.0
+    columnParser.skipQuote             LogEntry                  284           0    0.0    0.0     0.0    0.0
+     skipChar                          LogEntry                  285           0    0.0    0.0     0.0    0.0
+ CAF                                   Main                      275           0    0.0    0.0     0.0    0.0
+  main                                 Main                      276           1    0.0    0.0     0.0    0.0
+   stdInProducer                       Conduit                   310           0    0.0    0.0     0.0    0.0
+   stdOutConsumer                      Conduit                   304           0    0.0    0.0     0.0    0.0
+ CAF                                   Conduit                   274           0    0.0    0.0     0.0    0.0
+  stdInProducer                        Conduit                   309           1    0.0    0.0     0.0    0.0
+  logEntryConduit                      Conduit                   307           1    0.0    0.0     0.0    0.0
+  stdOutConsumer                       Conduit                   303           1    0.0    0.0     0.0    0.0
+ CAF                                   LogEntry                  273           0    0.0    0.0     0.0    0.0
+  newLogEntryParser                    LogEntry                  318           0    0.0    0.0     0.0    0.0
+   newLogEntryParser.build             LogEntry                  319           0    0.0    0.0     0.0    0.0
+    skipChar                           LogEntry                  320           1    0.0    0.0     0.0    0.0
+  columnParser                         LogEntry                  280           1    0.0    0.0     0.0    0.0
+   columnParser.columnValue            LogEntry                  294           0    0.0    0.0     0.0    0.0
+   skipChar                            LogEntry                  286           2    0.0    0.0     0.0    0.0
+   columnParser.skipQuote              LogEntry                  282           1    0.0    0.0     0.0    0.0
+    skipChar                           LogEntry                  283           1    0.0    0.0     0.0    0.0
+  schemaParser                         LogEntry                  278           1    0.0    0.0     0.0    0.0
+ CAF                                   StatsConduit              272           0    0.0    0.0     0.0    0.0
+  fromSci                              StatsConduit              390           1    0.0    0.0     0.0    0.0
+  showColumnStats                      StatsConduit              389           0    0.0    0.0     0.0    0.0
+  appendColName                        StatsConduit              388           0    0.0    0.0     0.0    0.0
+  newLine                              StatsConduit              382           1    0.0    0.0     0.0    0.0
+  newStatsToByteStringConduit          StatsConduit              358           0    0.0    0.0     0.0    0.0
+   newStatsToByteStringConduit.conduit StatsConduit              359           0    0.0    0.0     0.0    0.0
+    showLogStats                       StatsConduit              360           0    0.0    0.0     0.0    0.0
+     appendBs                          StatsConduit              361           1    0.0    0.0     0.0    0.0
+  updateColumnStats                    StatsConduit              337           0    0.0    0.0     0.0    0.0
+   updateColumnStats.\                 StatsConduit              356           0    0.0    0.0     0.0    0.0
+   updateColumnStats.alpha             StatsConduit              348           1    0.0    0.0     0.0    0.0
+   updateColumnStats.alpha             StatsConduit              338           1    0.0    0.0     0.0    0.0
+  newColumnStats                       StatsConduit              295           0    0.0    0.0     0.0    0.0
+   newColumnStats.newRef               StatsConduit              300           1    0.0    0.0     0.0    0.0
+   newColumnStats.newBsRef             StatsConduit              298           1    0.0    0.0     0.0    0.0
+   newColumnStats.newRef               StatsConduit              296           1    0.0    0.0     0.0    0.0
+ CAF                                   Data.Conduit.Attoparsec   270           0    0.0    0.0     0.0    0.0
+ CAF                                   Data.Scientific           230           0    0.0    0.0     0.0    0.0
+ CAF                                   GHC.Float                 192           0    0.0    0.0     0.0    0.0
+ CAF                                   GHC.IO.Encoding           191           0    0.0    0.0     0.0    0.0
+ CAF                                   GHC.IO.Handle.FD          189           0    0.0    0.0     0.0    0.0
+ CAF                                   GHC.Conc.Signal           180           0    0.0    0.0     0.0    0.0
+ CAF                                   GHC.IO.Encoding.Iconv     161           0    0.0    0.0     0.0    0.0
