@@ -100,7 +100,7 @@ updateColumnStats (TextCol stats) column =
 
       _ -> return()
       where
-          alpha = 0.02 -- EMA alpha 2/200
+          alpha = 0.02
           textStat valFun cntFun cmp1 cmp2 valB lenB = do
             valA <- readIORef $ valFun stats
 
@@ -128,7 +128,7 @@ updateColumnStats (NumberCol stats) column =
 
       _ -> return()
       where
-          alpha = 0.02 -- EMA alpha 2/200
+          alpha = 0.02
           minMax valFun val cmp = do
               cVal <- readIORef $ valFun stats
               when (cmp val cVal) $ writeIORef (valFun stats) val 
